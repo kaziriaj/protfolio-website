@@ -10,27 +10,76 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+ <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f6f9;
+            min-height: 100vh;
+        }
+        .sidebar {
+            background-color: #667eea;
+            color: #fff;
+            min-height: 100vh;
+            padding-top: 2rem;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .sidebar a:hover {
+            background-color: #5563c1;
+        }
+        .card-dashboard {
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .welcome-text {
+            font-size: 1.25rem;
+        }
+    </style>
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+    <body>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-2 sidebar d-none d-md-block">
+            <h4 class="text-center mb-4">Protfolio Website</h4>
+            <a href="{{ route('dashboard') }}">Dashboard</a>
+            <a href="{{ route('dashboard') }}">Skrills</a>
+            <a href="{{ route('dashboard') }}">Blogs</a>
+            <a href="{{ route('dashboard') }}">Protfolio</a>
+            <a href="{{ route('profile.edit') }}">Profile</a>
+            <a href="#">Settings</a>
+            <a href="{{ route('logout') }}" 
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+        </nav>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
+        <!-- Main Content -->
+        <!-- Page Content -->
+            <main class="col-md-10 ms-sm-auto px-4 py-4">
+                @yield('dashboard-contain')
             </main>
-        </div>
-    </body>
+        
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>
