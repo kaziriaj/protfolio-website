@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogConrtoller;
 use App\Http\Controllers\DashboardConrtoller;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\WebsitePshowController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,9 +21,10 @@ Route::get('/', function () {
     return view('homepage');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+// Route for website
+
+Route::get('/allblogs', [WebsitePshowController::class, 'allblogs'])->name('show.blogs');
+
 
 Route::get('/dashboard', [DashboardConrtoller::class, 'index'])->name('dashboard')
 ->middleware('auth','verified');

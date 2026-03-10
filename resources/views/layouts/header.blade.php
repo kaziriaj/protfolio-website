@@ -27,7 +27,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
                             <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ url('/blog') }}">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{ route('show.blogs') }}">Blog</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/skrills') }}">Skrills</a></li>
                             <li class="nav-item"><a class="nav-link" href="{{ url('/protfolio') }}">Protfolio</a></li>
                             <li class="nav-item"><a class="nav-link" href="">Projects</a></li>
