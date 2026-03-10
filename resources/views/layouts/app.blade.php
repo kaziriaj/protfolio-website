@@ -43,6 +43,9 @@
             font-size: 1.25rem;
         }
     </style>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
@@ -55,7 +58,7 @@
             <h4 class="text-center mb-4">Protfolio Website</h4>
             <a href="{{ route('dashboard') }}">Dashboard</a>
             <a href="{{ route('dashboard') }}">Skrills</a>
-            <a href="{{ route('dashboard') }}">Blogs</a>
+            <a href="{{ route('blog.index') }}">Blogs</a>
             <a href="{{ route('dashboard') }}">Protfolio</a>
             <a href="{{ route('profile.edit') }}">Profile</a>
             <a href="#">Settings</a>
@@ -79,6 +82,18 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+@if(session('success'))
+    <script>
+        Toastify({
+            text: "{{ session('success') }}",
+            duration: 3000,
+            gravity: "top", // top or bottom
+            position: "right", // left, center or right
+            backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+        }).showToast();
+    </script>
+@endif
 
 </body>
 

@@ -17,8 +17,8 @@
 
                 <div class="col-md-4">
                     <div class="card card-dashboard p-3">
-                        <h5>Posts</h5>
-                        <p class="fw-bold display-6">45</p>
+                        <h5>Blogs</h5>
+                        <p class="fw-bold display-6">{{$blogcount}}</p>
                         <small>Published posts</small>
                     </div>
                 </div>
