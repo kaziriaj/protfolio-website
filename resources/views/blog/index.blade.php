@@ -24,18 +24,25 @@
                                         <td>{{ $blog->category }}</td>
                                         <td>{{ $blog->link }}</td>
                                         <td>
-                                            <img class="img-thumbnail" src="{{ asset('/storage/' . $blog->blog_image) }}" alt="">
+                                            <img class="img-thumbnail" src="{{ asset('/storage/' . $blog->blog_image) }}"
+                                                alt="">
                                         </td>
-                                        <td> 
+                                        <td>
                                             @if ($blog->is_active === 1)
                                                 <span class="badge badge-success">Active</span>
                                             @else
                                                 <span class="badge badge-danger">Inactive</span>
                                             @endif
-                                         </td>
+                                        </td>
                                         <td>
-                                            <a href="#" class="btn btn-primary">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a href="{{ route('blog.edit', $blog->id) }}" class="btn btn-primary">Edit</a>
+                                            <form action="{{ route('blog.delete', $blog->id) }}" method="POST"
+                                                style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @empty

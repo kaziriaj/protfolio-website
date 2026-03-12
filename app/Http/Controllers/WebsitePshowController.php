@@ -12,4 +12,9 @@ class WebsitePshowController extends Controller
         $allblogs = Blog::latest()->get();
         return view('allblogs', compact('allblogs'));
     }
+
+    public function allskrills()
+    {
+        return view('allskrills');
+    }
 }

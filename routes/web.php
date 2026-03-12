@@ -24,6 +24,7 @@ Route::get('/', function () {
 // Route for website
 
 Route::get('/allblogs', [WebsitePshowController::class, 'allblogs'])->name('show.blogs');
+Route::get('/skrills', [WebsitePshowController::class, 'allskrills'])->name('show.skrills');
 
 
 Route::get('/dashboard', [DashboardConrtoller::class, 'index'])->name('dashboard')
@@ -37,6 +38,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/blogs',[BlogConrtoller::class,'index'])->name('blog.index');
     Route::get('/blogs/create',[BlogConrtoller::class,'create'])->name('blog.create');
     Route::post('/blogs/store',[BlogConrtoller::class,'store'])->name('blog.store');
+    Route::get('/blogs/{id}/edit',[BlogConrtoller::class,'edit'])->name('blog.edit');
+    Route::put('/blogs/{id}/update',[BlogConrtoller::class,'update'])->name('blog.update');
+    Route::delete('/blogs/{id}/delete',[BlogConrtoller::class,'destroy'])->name('blog.delete');
 });
 
 require __DIR__.'/auth.php';
